@@ -7,6 +7,8 @@
 //
 
 #import "SWViewController.h"
+#import "SWDetailViewController.h"
+#import "SWShareScreenShot.h"
 
 @interface SWViewController ()
 
@@ -25,5 +27,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    [[SWShareScreenShot shareManager] keepImageByCurrentViewController:self withName:@"SWShareViewController"];
+    
+}
+
 
 @end

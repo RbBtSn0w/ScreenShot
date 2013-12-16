@@ -21,6 +21,8 @@
 		8003C395185E92E400143006 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8003C377185E92E400143006 /* UIKit.framework */; };
 		8003C39D185E92E400143006 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8003C39B185E92E400143006 /* InfoPlist.strings */; };
 		8003C39F185E92E400143006 /* ShareScreenShotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8003C39E185E92E400143006 /* ShareScreenShotTests.m */; };
+		8003C3AA185E942300143006 /* SWShareScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8003C3A9185E942300143006 /* SWShareScreenShot.m */; };
+		8003C3AD185EAEDC00143006 /* SWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8003C3AC185EAEDC00143006 /* SWDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		8003C39A185E92E400143006 /* ShareScreenShotTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShareScreenShotTests-Info.plist"; sourceTree = "<group>"; };
 		8003C39C185E92E400143006 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8003C39E185E92E400143006 /* ShareScreenShotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareScreenShotTests.m; sourceTree = "<group>"; };
+		8003C3A8185E942300143006 /* SWShareScreenShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWShareScreenShot.h; sourceTree = "<group>"; };
+		8003C3A9185E942300143006 /* SWShareScreenShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWShareScreenShot.m; sourceTree = "<group>"; };
+		8003C3AB185EAEDC00143006 /* SWDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDetailViewController.h; sourceTree = "<group>"; };
+		8003C3AC185EAEDC00143006 /* SWDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,10 @@
 				8003C385185E92E400143006 /* Main.storyboard */,
 				8003C388185E92E400143006 /* SWViewController.h */,
 				8003C389185E92E400143006 /* SWViewController.m */,
+				8003C3A8185E942300143006 /* SWShareScreenShot.h */,
+				8003C3A9185E942300143006 /* SWShareScreenShot.m */,
+				8003C3AB185EAEDC00143006 /* SWDetailViewController.h */,
+				8003C3AC185EAEDC00143006 /* SWDetailViewController.m */,
 				8003C38B185E92E400143006 /* Images.xcassets */,
 				8003C37A185E92E400143006 /* Supporting Files */,
 			);
@@ -251,7 +261,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8003C38A185E92E400143006 /* SWViewController.m in Sources */,
+				8003C3AA185E942300143006 /* SWShareScreenShot.m in Sources */,
 				8003C384185E92E400143006 /* SWAppDelegate.m in Sources */,
+				8003C3AD185EAEDC00143006 /* SWDetailViewController.m in Sources */,
 				8003C380185E92E400143006 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
