@@ -7,7 +7,6 @@
 //
 
 #import "SWShareScreenShot.h"
-#import "SWAppDelegate.h"
 
 @implementation SWShareScreenShot
 
@@ -167,6 +166,15 @@
     return picker;
 }
 
+- (UIViewController*)shareToEmailSheetByDelegate:(id)delegate withImageName:(NSString *)aName{
+    UIImage *image = [self.images objectForKey:aName];
+    return [self shareToEmailSheetByDelegate:delegate withImage:image];
+}
+
+- (UIViewController*)shareToSMSSheetByDelegate:(id)delegate withImageName:(NSString *)aName{
+    UIImage *image = [self.images objectForKey:aName];
+    return  [self shareToSMSSheetByDelegate:delegate withImage:image];
+}
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
     

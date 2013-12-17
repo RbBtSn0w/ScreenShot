@@ -23,4 +23,7 @@
 - (UIViewController*)shareToSMSSheetByDelegate:(id)delegate withImage:(UIImage*)aImage;
 - (UIViewController*)shareToEmailSheetByDelegate:(id)delegate withImage:(UIImage*)aImage;
 
+- (UIViewController*)shareToSMSSheetByDelegate:(id)delegate withImageName:(NSString*)aName;
+- (UIViewController*)shareToEmailSheetByDelegate:(id)delegate withImageName:(NSString*)aName;
+
 @end
