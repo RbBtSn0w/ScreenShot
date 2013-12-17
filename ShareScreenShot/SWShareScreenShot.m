@@ -91,4 +91,97 @@
         [self.images removeObjectForKey:name];
     }
 }
+
+
+
+- (UIViewController*)shareToSMSSheetByDelegate:(id)delegate withImage:(UIImage*)aImage{
+    
+    viewController = (UIViewController*)delegate;
+    
+    MFMessageComposeViewController *messageVC = [[MFMessageComposeViewController alloc] init];
+    messageVC.messageComposeDelegate = delegate;
+    
+    //if ([messageVC respondsToSelector:@selector(canSendAttachments)]) {
+        if ([MFMessageComposeViewController canSendAttachments]) {
+            messageVC.subject = @"subject";
+            messageVC.recipients = @[@"recipient"];
+            messageVC.body = @"body";
+            
+            [messageVC addAttachmentData:UIImagePNGRepresentation(aImage)
+                          typeIdentifier:@"public.data"
+                                filename:@"fileName.png"];
+      //  }
+    }else{
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device can't send MMS" delegate:delegate cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [av show];
+        return nil;
+    }
+    
+    return messageVC;
+}
+
+
+- (UIViewController*)shareToEmailSheetByDelegate:(id)delegate withImage:(UIImage*)aImage{
+    
+    viewController = (UIViewController*)delegate;
+    
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = delegate;
+    
+    if (![MFMailComposeViewController canSendMail]) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device can't send email" delegate:delegate cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [av show];
+        return nil;
+    }
+    
+    [picker setSubject:@"Hello from California!"];
+    
+    // Set up the recipients.
+    NSArray *toRecipients = [NSArray arrayWithObjects:@"first@example.com",
+                             nil];
+    NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com",
+                             @"third@example.com", nil];
+    NSArray *bccRecipients = [NSArray arrayWithObjects:@"four@example.com",
+                              nil];
+    
+    [picker setToRecipients:toRecipients];
+    [picker setCcRecipients:ccRecipients];
+    [picker setBccRecipients:bccRecipients];
+    
+    // Attach an image to the email.
+    
+//    NSData *myData = [NSData dataWithContentsOfFile:path];
+//    [picker addAttachmentData:myData mimeType:@"image/png"
+//                     fileName:@"ipodnano"];
+    UIImage *image = aImage;
+    
+    [picker addAttachmentData:UIImagePNGRepresentation(image)
+                     mimeType:@"public.data"
+                     fileName:@"fileName.png"];
+    
+    // Fill out the email body text.
+    NSString *emailBody = @"It is raining in sunny California!";
+    [picker setMessageBody:emailBody isHTML:NO];
+    
+    
+    return picker;
+}
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    
+    
+    if (viewController) {
+        [viewController dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
+    
+    
+    if (viewController) {
+        [viewController dismissViewControllerAnimated:YES completion:nil];
+    }
+}
 @end

@@ -23,6 +23,7 @@
 		8003C39F185E92E400143006 /* ShareScreenShotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8003C39E185E92E400143006 /* ShareScreenShotTests.m */; };
 		8003C3AA185E942300143006 /* SWShareScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8003C3A9185E942300143006 /* SWShareScreenShot.m */; };
 		8003C3AD185EAEDC00143006 /* SWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8003C3AC185EAEDC00143006 /* SWDetailViewController.m */; };
+		8003C3AF185EEAA900143006 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8003C3AE185EEAA900143006 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		8003C3A9185E942300143006 /* SWShareScreenShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWShareScreenShot.m; sourceTree = "<group>"; };
 		8003C3AB185EAEDC00143006 /* SWDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDetailViewController.h; sourceTree = "<group>"; };
 		8003C3AC185EAEDC00143006 /* SWDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDetailViewController.m; sourceTree = "<group>"; };
+		8003C3AE185EEAA900143006 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8003C3AF185EEAA900143006 /* MessageUI.framework in Frameworks */,
 				8003C376185E92E400143006 /* CoreGraphics.framework in Frameworks */,
 				8003C378185E92E400143006 /* UIKit.framework in Frameworks */,
 				8003C374185E92E400143006 /* Foundation.framework in Frameworks */,
@@ -107,6 +110,7 @@
 		8003C372185E92E400143006 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8003C3AE185EEAA900143006 /* MessageUI.framework */,
 				8003C373185E92E400143006 /* Foundation.framework */,
 				8003C375185E92E400143006 /* CoreGraphics.framework */,
 				8003C377185E92E400143006 /* UIKit.framework */,

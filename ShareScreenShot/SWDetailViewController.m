@@ -8,8 +8,8 @@
 
 #import "SWDetailViewController.h"
 #import "SWShareScreenShot.h"
-
-@interface SWDetailViewController ()
+#import <MessageUI/MessageUI.h>
+@interface SWDetailViewController ()<MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
@@ -30,15 +30,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//    if (self.image) {
-//        self.imageView.image = self.image;    
-//    }
+    //    if (self.image) {
+    //        self.imageView.image = self.image;
+    //    }
     
     
     UIImage *image = [[SWShareScreenShot shareManager].images objectForKey:@"SWShareViewController"];
     
     if (image) {
         self.imageView.image = image;
+        self.image = image;
     }
     
 }
@@ -49,5 +50,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)shareEmail:(id)sender {
+    
+    UIViewController *vc = [[SWShareScreenShot shareManager] shareToEmailSheetByDelegate:self withImage:self.image];
+    if (!vc)return;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+- (IBAction)shareMMS:(id)sender {
+    UIViewController *vc =  [[SWShareScreenShot shareManager] shareToSMSSheetByDelegate:self withImage:self.image];
+    if (!vc)return;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    
+        [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
+    
+        [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end
